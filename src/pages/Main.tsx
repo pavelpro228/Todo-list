@@ -9,19 +9,23 @@ export const Main = () => {
     const [tasksArr, setTaskArr] = useState<Array<ITask>>([...tasks]);
     const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
-    const createIdTask = (id: number) => {        
+    const createIdTaskTitle = (id: number) => {
         return id;
     }
 
-    const changeStyle = (id: number) => {
+    const changeStyleTitle = (id: number) => {
         const idTask = String(id);
 
-        const getId = document.getElementById(idTask);
+        const getIdTitle = document.getElementById(`title-${idTask}`);
 
-        if (getId != undefined) {
-            getId.style.color = 'grey';
-            getId.style.textDecoration = 'line-through'
+        if (getIdTitle != undefined) {
+            getIdTitle.style.color = 'grey';
+            getIdTitle.style.textDecoration = 'line-through'
         }
+
+        const getIdBtnDone = document.getElementById(`done-${idTask}`);
+
+        if (getIdBtnDone != undefined) getIdBtnDone.style.display = 'none';
     }
     
     const getTasks = (task: ITask) => {
@@ -65,8 +69,8 @@ export const Main = () => {
                             title={task.title} 
                             deleteTask={() => deleteTask(index)}
                             doneTask={() => doneTask(index, task)}
-                            createIdTask={() => createIdTask(index)}
-                            changeStyle={() => changeStyle(index)}
+                            createIdTaskTitle={() => createIdTaskTitle(index)}
+                            changeStyleTitle={() => changeStyleTitle(index)}
                             isCompleted={isCompleted}
                         />
                     ))

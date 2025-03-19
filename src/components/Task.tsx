@@ -7,22 +7,21 @@ interface TaskProps {
     isCompleted: boolean
     deleteTask: () => void
     doneTask: () => void
-    changeStyle: () => void
-    createIdTask: () => number
-    
+    changeStyleTitle: () => void
+    createIdTaskTitle: () => number
 }
 
-export const Task = ({ title, isCompleted, deleteTask, doneTask, changeStyle, createIdTask }: TaskProps) => {
-    const idTask = String(createIdTask());
+export const Task = ({ title, deleteTask, doneTask, changeStyleTitle, createIdTaskTitle }: TaskProps) => {
+    const idTask = String(createIdTaskTitle());
     
     return (
         <div className="task mt-5 border py-3 rounded">
-            <strong id={idTask}>{title}</strong>
+            <strong id={`title-${idTask}`}>{title}</strong>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                <div className='done-task'>
+                <div id={`done-${idTask}`} className='done-task'>
                     <MdDone onClick={() => {
                         doneTask();
-                        changeStyle();
+                        changeStyleTitle();
                     }}/>
                 </div>
                 <MdDelete className='delete-task' onClick={deleteTask}/>
