@@ -5,6 +5,10 @@
     padding-right: 20px;
     padding-left: 20px;
     font-size: 30px;
+    animation: 1s showTask ease;
+    animation-fill-mode: forwards;
+    position: relative;
+    left: -500px;
 }
 
 .done-task {
@@ -22,4 +26,24 @@
 .done-task:hover,
 .delete-task:hover {
     color: rgb(98, 98, 98);
+}
+
+@keyframes showTask {
+    from { 
+        opacity: 0;
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(500px);
+    }
+}
+
+@keyframes deleteTask {
+    from { 
+        opacity: 1;
+    }
+    to { 
+        opacity: 0;
+        transform: translateX(500px);
+    }
 }

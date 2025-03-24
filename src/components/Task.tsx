@@ -15,7 +15,7 @@ export const Task = ({ title, deleteTask, doneTask, changeStyleTitle, createIdTa
     const idTask = String(createIdTaskTitle());
     
     return (
-        <div className="task mt-5 border py-3 rounded">
+        <div id={`task-${idTask}`} className="task mt-5 border py-3 rounded">
             <strong id={`title-${idTask}`}>{title}</strong>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <div id={`done-${idTask}`} className='done-task'>

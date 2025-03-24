@@ -17,10 +17,9 @@ export const Main = () => {
         const idTask = String(id);
 
         const getIdTitle = document.getElementById(`title-${idTask}`);
-
         if (getIdTitle != undefined) {
             getIdTitle.style.color = 'grey';
-            getIdTitle.style.textDecoration = 'line-through'
+            getIdTitle.style.textDecoration = 'line-through';
         }
 
         const getIdBtnDone = document.getElementById(`done-${idTask}`);
@@ -37,6 +36,14 @@ export const Main = () => {
         const temp = [...tasksArr];
         temp.splice(task, 1);
         setTaskArr(temp);
+
+        const idTask = String(task);
+        const getIdTaskContainer = document.getElementById(`task-${idTask}`);
+        if (getIdTaskContainer != undefined) {
+            getIdTaskContainer.style.animationName = 'deleteTask';
+            getIdTaskContainer.style.animationDelay = "1s";
+            getIdTaskContainer.style.animationFillMode = "forward";
+        } 
     }
 
     const doneTask = (task: number, nameTask: ITask) => {

@@ -1,20 +1,22 @@
 import { ITask } from "../models/TaskModel";
 
+const date = new Date()
+
 export const tasks: ITask[] = [
     {
-        id: 1,
-        title: "Выучить TypeScript"
+        id: +date + 1,
+        title: "Вивчити TypeScript"
     },
     {
-        id: 2,
-        title: "Вынести мусор"
+        id: +date + 2,
+        title: "Винести сміття"
     },
     {
-        id: 3,
-        title: "Сделать уборку"
+        id: +date + 3,
+        title: "Зробити прибирання"
     },
     {
-        id: 4,
-        title: "Поесть"
+        id: +date + 4,
+        title: "Зробити Todo List"
     }
 ]
